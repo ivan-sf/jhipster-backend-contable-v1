@@ -1,0 +1,69 @@
+{
+  "name": "Cliente",
+  "fields": [
+    {
+      "fieldName": "nombres",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "apellidos",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tipoPersona",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tipoDocumento",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "documento",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dv",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "estado",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "municipio",
+      "otherEntityRelationshipName": "cliente",
+      "relationshipName": "municipio"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "ciudad",
+      "otherEntityRelationshipName": "cliente",
+      "relationshipName": "ciudad"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "departamento",
+      "otherEntityRelationshipName": "cliente",
+      "relationshipName": "departamento"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "pais",
+      "otherEntityRelationshipName": "cliente",
+      "relationshipName": "pais"
+    }
+  ],
+  "entityTableName": "cliente",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20220102042121"
+}

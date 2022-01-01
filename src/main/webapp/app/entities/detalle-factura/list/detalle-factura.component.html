@@ -1,0 +1,134 @@
+<div>
+  <h2 id="page-heading" data-cy="DetalleFacturaHeading">
+    <span jhiTranslate="contable4App.detalleFactura.home.title">Detalle Facturas</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadPage()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="contable4App.detalleFactura.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-detalle-factura"
+        [routerLink]="['/detalle-factura/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="contable4App.detalleFactura.home.createLabel"> Create a new Detalle Factura </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="detalleFacturas?.length === 0">
+    <span jhiTranslate="contable4App.detalleFactura.home.notFound">No detalleFacturas found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="detalleFacturas && detalleFacturas.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="loadPage()">
+          <th scope="col" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="precio">
+            <span jhiTranslate="contable4App.detalleFactura.precio">Precio</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="cantidad">
+            <span jhiTranslate="contable4App.detalleFactura.cantidad">Cantidad</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="total">
+            <span jhiTranslate="contable4App.detalleFactura.total">Total</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="iva">
+            <span jhiTranslate="contable4App.detalleFactura.iva">Iva</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="valorImpuesto">
+            <span jhiTranslate="contable4App.detalleFactura.valorImpuesto">Valor Impuesto</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="estado">
+            <span jhiTranslate="contable4App.detalleFactura.estado">Estado</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="objeto.id">
+            <span jhiTranslate="contable4App.detalleFactura.objeto">Objeto</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="factura.id">
+            <span jhiTranslate="contable4App.detalleFactura.factura">Factura</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let detalleFactura of detalleFacturas; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/detalle-factura', detalleFactura.id, 'view']">{{ detalleFactura.id }}</a>
+          </td>
+          <td>{{ detalleFactura.precio }}</td>
+          <td>{{ detalleFactura.cantidad }}</td>
+          <td>{{ detalleFactura.total }}</td>
+          <td>{{ detalleFactura.iva }}</td>
+          <td>{{ detalleFactura.valorImpuesto }}</td>
+          <td>{{ detalleFactura.estado }}</td>
+          <td>
+            <div *ngIf="detalleFactura.objeto">
+              <a [routerLink]="['/objeto', detalleFactura.objeto?.id, 'view']">{{ detalleFactura.objeto?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="detalleFactura.factura">
+              <a [routerLink]="['/factura', detalleFactura.factura?.id, 'view']">{{ detalleFactura.factura?.id }}</a>
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/detalle-factura', detalleFactura.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/detalle-factura', detalleFactura.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(detalleFactura)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="detalleFacturas && detalleFacturas.length > 0">
+    <div class="row justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="row justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [(page)]="ngbPaginationPage"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="loadPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

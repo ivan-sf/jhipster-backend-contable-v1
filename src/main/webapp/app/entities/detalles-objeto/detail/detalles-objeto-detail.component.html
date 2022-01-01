@@ -1,0 +1,40 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="detallesObjeto">
+      <h2 data-cy="detallesObjetoDetailsHeading"><span jhiTranslate="contable4App.detallesObjeto.detail.title">Detalles Objeto</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ detallesObjeto.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.detallesObjeto.nombre">Nombre</span></dt>
+        <dd>
+          <span>{{ detallesObjeto.nombre }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.detallesObjeto.descripcion">Descripcion</span></dt>
+        <dd>
+          <span>{{ detallesObjeto.descripcion }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.detallesObjeto.fechaRegistro">Fecha Registro</span></dt>
+        <dd>
+          <span>{{ detallesObjeto.fechaRegistro | formatMediumDatetime }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/detalles-objeto', detallesObjeto.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

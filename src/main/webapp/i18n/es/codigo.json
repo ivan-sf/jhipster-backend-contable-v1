@@ -1,0 +1,31 @@
+{
+  "contable4App": {
+    "codigo": {
+      "home": {
+        "title": "Codigos",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Codigo",
+        "createOrEditLabel": "Crear o editar Codigo",
+        "notFound": "Ningún Codigos encontrado"
+      },
+      "created": "Un nuevo Codigo ha sido creado con el identificador {{ param }}",
+      "updated": "Un Codigo ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Codigo ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Codigo {{ id }}?"
+      },
+      "detail": {
+        "title": "Codigo"
+      },
+      "id": "ID",
+      "barCode": "Bar Code",
+      "qrCode": "Qr Code",
+      "cantidad": "Cantidad",
+      "fechaRegistro": "Fecha Registro",
+      "paquete": "Paquete",
+      "lote": "Lote",
+      "vencimiento": "Vencimiento",
+      "objeto": "Objeto"
+    }
+  }
+}

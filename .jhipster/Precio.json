@@ -1,0 +1,31 @@
+{
+  "name": "Precio",
+  "fields": [
+    {
+      "fieldName": "valorVenta",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "valorCompra",
+      "fieldType": "Double"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "paquete",
+      "otherEntityRelationshipName": "precio",
+      "relationshipName": "paquete"
+    }
+  ],
+  "entityTableName": "precio",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20220102042135"
+}

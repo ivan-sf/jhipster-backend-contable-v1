@@ -1,0 +1,80 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="cliente">
+      <h2 data-cy="clienteDetailsHeading"><span jhiTranslate="contable4App.cliente.detail.title">Cliente</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ cliente.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.cliente.nombres">Nombres</span></dt>
+        <dd>
+          <span>{{ cliente.nombres }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.cliente.apellidos">Apellidos</span></dt>
+        <dd>
+          <span>{{ cliente.apellidos }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.cliente.tipoPersona">Tipo Persona</span></dt>
+        <dd>
+          <span>{{ cliente.tipoPersona }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.cliente.tipoDocumento">Tipo Documento</span></dt>
+        <dd>
+          <span>{{ cliente.tipoDocumento }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.cliente.documento">Documento</span></dt>
+        <dd>
+          <span>{{ cliente.documento }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.cliente.dv">Dv</span></dt>
+        <dd>
+          <span>{{ cliente.dv }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.cliente.estado">Estado</span></dt>
+        <dd>
+          <span>{{ cliente.estado }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.cliente.municipio">Municipio</span></dt>
+        <dd>
+          <div *ngIf="cliente.municipio">
+            <a [routerLink]="['/municipio', cliente.municipio?.id, 'view']">{{ cliente.municipio?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="contable4App.cliente.ciudad">Ciudad</span></dt>
+        <dd>
+          <div *ngIf="cliente.ciudad">
+            <a [routerLink]="['/ciudad', cliente.ciudad?.id, 'view']">{{ cliente.ciudad?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="contable4App.cliente.departamento">Departamento</span></dt>
+        <dd>
+          <div *ngIf="cliente.departamento">
+            <a [routerLink]="['/departamento', cliente.departamento?.id, 'view']">{{ cliente.departamento?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="contable4App.cliente.pais">Pais</span></dt>
+        <dd>
+          <div *ngIf="cliente.pais">
+            <a [routerLink]="['/pais', cliente.pais?.id, 'view']">{{ cliente.pais?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/cliente', cliente.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

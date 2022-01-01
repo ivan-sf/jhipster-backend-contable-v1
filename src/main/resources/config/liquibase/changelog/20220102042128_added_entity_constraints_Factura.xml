@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+    <!--
+        Added the constraints for entity Factura.
+    -->
+    <changeSet id="20220102042128-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="sucursal_id"
+                                 baseTableName="factura"
+                                 constraintName="fk_factura__sucursal_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="sucursal"/>
+
+        <addForeignKeyConstraint baseColumnNames="tipo_factura_id"
+                                 baseTableName="factura"
+                                 constraintName="fk_factura__tipo_factura_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tipo_factura"/>
+
+        <addForeignKeyConstraint baseColumnNames="nota_contable_id"
+                                 baseTableName="factura"
+                                 constraintName="fk_factura__nota_contable_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="nota_contable"/>
+
+        <addForeignKeyConstraint baseColumnNames="cliente_id"
+                                 baseTableName="factura"
+                                 constraintName="fk_factura__cliente_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="cliente"/>
+
+        <addForeignKeyConstraint baseColumnNames="empleadp_id"
+                                 baseTableName="factura"
+                                 constraintName="fk_factura__empleadp_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="empleado"/>
+    </changeSet>
+</databaseChangeLog>

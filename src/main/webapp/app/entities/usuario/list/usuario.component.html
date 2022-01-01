@@ -1,0 +1,210 @@
+<div>
+  <h2 id="page-heading" data-cy="UsuarioHeading">
+    <span jhiTranslate="contable4App.usuario.home.title">Usuarios</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadPage()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="contable4App.usuario.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-usuario"
+        [routerLink]="['/usuario/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="contable4App.usuario.home.createLabel"> Create a new Usuario </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="usuarios?.length === 0">
+    <span jhiTranslate="contable4App.usuario.home.notFound">No usuarios found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="usuarios && usuarios.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="loadPage()">
+          <th scope="col" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="nombres">
+            <span jhiTranslate="contable4App.usuario.nombres">Nombres</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="apellidos">
+            <span jhiTranslate="contable4App.usuario.apellidos">Apellidos</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="tipoPersona">
+            <span jhiTranslate="contable4App.usuario.tipoPersona">Tipo Persona</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="tipoDocumento">
+            <span jhiTranslate="contable4App.usuario.tipoDocumento">Tipo Documento</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="documento">
+            <span jhiTranslate="contable4App.usuario.documento">Documento</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="dv"><span jhiTranslate="contable4App.usuario.dv">Dv</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="estado">
+            <span jhiTranslate="contable4App.usuario.estado">Estado</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="rol"><span jhiTranslate="contable4App.usuario.rol">Rol</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="rut"><span jhiTranslate="contable4App.usuario.rut">Rut</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="nombreComercial">
+            <span jhiTranslate="contable4App.usuario.nombreComercial">Nombre Comercial</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="nit"><span jhiTranslate="contable4App.usuario.nit">Nit</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="direccion">
+            <span jhiTranslate="contable4App.usuario.direccion">Direccion</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="indicativo">
+            <span jhiTranslate="contable4App.usuario.indicativo">Indicativo</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="telefono">
+            <span jhiTranslate="contable4App.usuario.telefono">Telefono</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="email">
+            <span jhiTranslate="contable4App.usuario.email">Email</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="genero">
+            <span jhiTranslate="contable4App.usuario.genero">Genero</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="edad"><span jhiTranslate="contable4App.usuario.edad">Edad</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="foto"><span jhiTranslate="contable4App.usuario.foto">Foto</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="descripcion">
+            <span jhiTranslate="contable4App.usuario.descripcion">Descripcion</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="fechaRegistro">
+            <span jhiTranslate="contable4App.usuario.fechaRegistro">Fecha Registro</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="cliente.id">
+            <span jhiTranslate="contable4App.usuario.cliente">Cliente</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="empleado.id">
+            <span jhiTranslate="contable4App.usuario.empleado">Empleado</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="municipio.id">
+            <span jhiTranslate="contable4App.usuario.municipio">Municipio</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="ciudad.id">
+            <span jhiTranslate="contable4App.usuario.ciudad">Ciudad</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="departamento.id">
+            <span jhiTranslate="contable4App.usuario.departamento">Departamento</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="pais.id">
+            <span jhiTranslate="contable4App.usuario.pais">Pais</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let usuario of usuarios; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/usuario', usuario.id, 'view']">{{ usuario.id }}</a>
+          </td>
+          <td>{{ usuario.nombres }}</td>
+          <td>{{ usuario.apellidos }}</td>
+          <td>{{ usuario.tipoPersona }}</td>
+          <td>{{ usuario.tipoDocumento }}</td>
+          <td>{{ usuario.documento }}</td>
+          <td>{{ usuario.dv }}</td>
+          <td>{{ usuario.estado }}</td>
+          <td>{{ usuario.rol }}</td>
+          <td>{{ usuario.rut }}</td>
+          <td>{{ usuario.nombreComercial }}</td>
+          <td>{{ usuario.nit }}</td>
+          <td>{{ usuario.direccion }}</td>
+          <td>{{ usuario.indicativo }}</td>
+          <td>{{ usuario.telefono }}</td>
+          <td>{{ usuario.email }}</td>
+          <td>{{ usuario.genero }}</td>
+          <td>{{ usuario.edad | formatMediumDatetime }}</td>
+          <td>{{ usuario.foto }}</td>
+          <td>{{ usuario.descripcion }}</td>
+          <td>{{ usuario.fechaRegistro | formatMediumDatetime }}</td>
+          <td>
+            <div *ngIf="usuario.cliente">
+              <a [routerLink]="['/cliente', usuario.cliente?.id, 'view']">{{ usuario.cliente?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="usuario.empleado">
+              <a [routerLink]="['/empleado', usuario.empleado?.id, 'view']">{{ usuario.empleado?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="usuario.municipio">
+              <a [routerLink]="['/municipio', usuario.municipio?.id, 'view']">{{ usuario.municipio?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="usuario.ciudad">
+              <a [routerLink]="['/ciudad', usuario.ciudad?.id, 'view']">{{ usuario.ciudad?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="usuario.departamento">
+              <a [routerLink]="['/departamento', usuario.departamento?.id, 'view']">{{ usuario.departamento?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="usuario.pais">
+              <a [routerLink]="['/pais', usuario.pais?.id, 'view']">{{ usuario.pais?.id }}</a>
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/usuario', usuario.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/usuario', usuario.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(usuario)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="usuarios && usuarios.length > 0">
+    <div class="row justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="row justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [(page)]="ngbPaginationPage"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="loadPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

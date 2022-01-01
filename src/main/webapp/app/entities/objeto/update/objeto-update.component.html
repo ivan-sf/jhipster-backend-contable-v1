@@ -1,0 +1,143 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-objeto-heading" data-cy="ObjetoCreateUpdateHeading" jhiTranslate="contable4App.objeto.home.createOrEditLabel">
+        Create or edit a Objeto
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.objeto.nombre" for="field_nombre">Nombre</label>
+          <input type="text" class="form-control" name="nombre" id="field_nombre" data-cy="nombre" formControlName="nombre" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.objeto.cantidad" for="field_cantidad">Cantidad</label>
+          <input type="number" class="form-control" name="cantidad" id="field_cantidad" data-cy="cantidad" formControlName="cantidad" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.objeto.codigoDian" for="field_codigoDian">Codigo Dian</label>
+          <input
+            type="text"
+            class="form-control"
+            name="codigoDian"
+            id="field_codigoDian"
+            data-cy="codigoDian"
+            formControlName="codigoDian"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.objeto.detalleObjeto" for="field_detalleObjeto"
+            >Detalle Objeto</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="detalleObjeto"
+            id="field_detalleObjeto"
+            data-cy="detalleObjeto"
+            formControlName="detalleObjeto"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.objeto.vencimiento" for="field_vencimiento">Vencimiento</label>
+          <div class="d-flex">
+            <input
+              id="field_vencimiento"
+              data-cy="vencimiento"
+              type="datetime-local"
+              class="form-control"
+              name="vencimiento"
+              formControlName="vencimiento"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.objeto.fechaRegistro" for="field_fechaRegistro"
+            >Fecha Registro</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_fechaRegistro"
+              data-cy="fechaRegistro"
+              type="datetime-local"
+              class="form-control"
+              name="fechaRegistro"
+              formControlName="fechaRegistro"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.objeto.tipoObjeto" for="field_tipoObjeto">Tipo Objeto</label>
+          <select class="form-control" id="field_tipoObjeto" data-cy="tipoObjeto" name="tipoObjeto" formControlName="tipoObjeto">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                tipoObjetoOption.id === editForm.get('tipoObjeto')!.value?.id ? editForm.get('tipoObjeto')!.value : tipoObjetoOption
+              "
+              *ngFor="let tipoObjetoOption of tipoObjetosCollection; trackBy: trackTipoObjetoById"
+            >
+              {{ tipoObjetoOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.objeto.usuario" for="field_usuario">Usuario</label>
+          <select class="form-control" id="field_usuario" data-cy="usuario" name="usuario" formControlName="usuario">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="usuarioOption.id === editForm.get('usuario')!.value?.id ? editForm.get('usuario')!.value : usuarioOption"
+              *ngFor="let usuarioOption of usuariosCollection; trackBy: trackUsuarioById"
+            >
+              {{ usuarioOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.objeto.sector" for="field_sector">Sector</label>
+          <select class="form-control" id="field_sector" data-cy="sector" name="sector" formControlName="sector">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="sectorOption.id === editForm.get('sector')!.value?.id ? editForm.get('sector')!.value : sectorOption"
+              *ngFor="let sectorOption of sectorsSharedCollection; trackBy: trackSectorById"
+            >
+              {{ sectorOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

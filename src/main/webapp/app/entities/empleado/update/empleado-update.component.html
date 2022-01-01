@@ -1,0 +1,98 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-empleado-heading" data-cy="EmpleadoCreateUpdateHeading" jhiTranslate="contable4App.empleado.home.createOrEditLabel">
+        Create or edit a Empleado
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.empleado.nombres" for="field_nombres">Nombres</label>
+          <input type="text" class="form-control" name="nombres" id="field_nombres" data-cy="nombres" formControlName="nombres" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.empleado.apellidos" for="field_apellidos">Apellidos</label>
+          <input type="text" class="form-control" name="apellidos" id="field_apellidos" data-cy="apellidos" formControlName="apellidos" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.empleado.tipoPersona" for="field_tipoPersona">Tipo Persona</label>
+          <input
+            type="text"
+            class="form-control"
+            name="tipoPersona"
+            id="field_tipoPersona"
+            data-cy="tipoPersona"
+            formControlName="tipoPersona"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.empleado.tipoDocumento" for="field_tipoDocumento"
+            >Tipo Documento</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="tipoDocumento"
+            id="field_tipoDocumento"
+            data-cy="tipoDocumento"
+            formControlName="tipoDocumento"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.empleado.documento" for="field_documento">Documento</label>
+          <input type="text" class="form-control" name="documento" id="field_documento" data-cy="documento" formControlName="documento" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.empleado.dv" for="field_dv">Dv</label>
+          <input type="text" class="form-control" name="dv" id="field_dv" data-cy="dv" formControlName="dv" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.empleado.estado" for="field_estado">Estado</label>
+          <input type="number" class="form-control" name="estado" id="field_estado" data-cy="estado" formControlName="estado" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.empleado.trabajo" for="field_trabajo">Trabajo</label>
+          <select class="form-control" id="field_trabajo" data-cy="trabajo" name="trabajo" formControlName="trabajo">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="trabajoOption.id === editForm.get('trabajo')!.value?.id ? editForm.get('trabajo')!.value : trabajoOption"
+              *ngFor="let trabajoOption of trabajosSharedCollection; trackBy: trackTrabajoById"
+            >
+              {{ trabajoOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

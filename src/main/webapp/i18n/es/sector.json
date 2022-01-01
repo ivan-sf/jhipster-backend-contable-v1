@@ -1,0 +1,28 @@
+{
+  "contable4App": {
+    "sector": {
+      "home": {
+        "title": "Sectors",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Sector",
+        "createOrEditLabel": "Crear o editar Sector",
+        "notFound": "Ningún Sectors encontrado"
+      },
+      "created": "Un nuevo Sector ha sido creado con el identificador {{ param }}",
+      "updated": "Un Sector ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Sector ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Sector {{ id }}?"
+      },
+      "detail": {
+        "title": "Sector"
+      },
+      "id": "ID",
+      "nombre": "Nombre",
+      "valor": "Valor",
+      "fechaRegistro": "Fecha Registro",
+      "objeto": "Objeto",
+      "inventario": "Inventario"
+    }
+  }
+}

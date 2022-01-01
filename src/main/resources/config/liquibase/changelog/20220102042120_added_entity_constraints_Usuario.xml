@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+    <!--
+        Added the constraints for entity Usuario.
+    -->
+    <changeSet id="20220102042120-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="cliente_id"
+                                 baseTableName="usuario"
+                                 constraintName="fk_usuario__cliente_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="cliente"/>
+
+        <addForeignKeyConstraint baseColumnNames="empleado_id"
+                                 baseTableName="usuario"
+                                 constraintName="fk_usuario__empleado_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="empleado"/>
+
+        <addForeignKeyConstraint baseColumnNames="municipio_id"
+                                 baseTableName="usuario"
+                                 constraintName="fk_usuario__municipio_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="municipio"/>
+
+        <addForeignKeyConstraint baseColumnNames="ciudad_id"
+                                 baseTableName="usuario"
+                                 constraintName="fk_usuario__ciudad_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="ciudad"/>
+
+        <addForeignKeyConstraint baseColumnNames="departamento_id"
+                                 baseTableName="usuario"
+                                 constraintName="fk_usuario__departamento_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="departamento"/>
+
+        <addForeignKeyConstraint baseColumnNames="pais_id"
+                                 baseTableName="usuario"
+                                 constraintName="fk_usuario__pais_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="pais"/>
+    </changeSet>
+</databaseChangeLog>

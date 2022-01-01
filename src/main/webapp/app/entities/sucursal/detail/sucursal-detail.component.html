@@ -1,0 +1,112 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="sucursal">
+      <h2 data-cy="sucursalDetailsHeading"><span jhiTranslate="contable4App.sucursal.detail.title">Sucursal</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ sucursal.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.sucursal.nombre">Nombre</span></dt>
+        <dd>
+          <span>{{ sucursal.nombre }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.sucursal.direccion">Direccion</span></dt>
+        <dd>
+          <span>{{ sucursal.direccion }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.sucursal.indicativo">Indicativo</span></dt>
+        <dd>
+          <span>{{ sucursal.indicativo }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.sucursal.telefono">Telefono</span></dt>
+        <dd>
+          <span>{{ sucursal.telefono }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.sucursal.email">Email</span></dt>
+        <dd>
+          <span>{{ sucursal.email }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.sucursal.logo">Logo</span></dt>
+        <dd>
+          <span>{{ sucursal.logo }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.sucursal.resolucionFacturas">Resolucion Facturas</span></dt>
+        <dd>
+          <span>{{ sucursal.resolucionFacturas }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.sucursal.prefijoInicial">Prefijo Inicial</span></dt>
+        <dd>
+          <span>{{ sucursal.prefijoInicial }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.sucursal.prefijoFinal">Prefijo Final</span></dt>
+        <dd>
+          <span>{{ sucursal.prefijoFinal }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.sucursal.prefijoActual">Prefijo Actual</span></dt>
+        <dd>
+          <span>{{ sucursal.prefijoActual }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.sucursal.descripcion">Descripcion</span></dt>
+        <dd>
+          <span>{{ sucursal.descripcion }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.sucursal.fechaRegistro">Fecha Registro</span></dt>
+        <dd>
+          <span>{{ sucursal.fechaRegistro | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.sucursal.regimen">Regimen</span></dt>
+        <dd>
+          <div *ngIf="sucursal.regimen">
+            <a [routerLink]="['/regimen', sucursal.regimen?.id, 'view']">{{ sucursal.regimen?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="contable4App.sucursal.municipio">Municipio</span></dt>
+        <dd>
+          <div *ngIf="sucursal.municipio">
+            <a [routerLink]="['/municipio', sucursal.municipio?.id, 'view']">{{ sucursal.municipio?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="contable4App.sucursal.ciudad">Ciudad</span></dt>
+        <dd>
+          <div *ngIf="sucursal.ciudad">
+            <a [routerLink]="['/ciudad', sucursal.ciudad?.id, 'view']">{{ sucursal.ciudad?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="contable4App.sucursal.departamento">Departamento</span></dt>
+        <dd>
+          <div *ngIf="sucursal.departamento">
+            <a [routerLink]="['/departamento', sucursal.departamento?.id, 'view']">{{ sucursal.departamento?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="contable4App.sucursal.pais">Pais</span></dt>
+        <dd>
+          <div *ngIf="sucursal.pais">
+            <a [routerLink]="['/pais', sucursal.pais?.id, 'view']">{{ sucursal.pais?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="contable4App.sucursal.empresa">Empresa</span></dt>
+        <dd>
+          <div *ngIf="sucursal.empresa">
+            <a [routerLink]="['/empresa', sucursal.empresa?.id, 'view']">{{ sucursal.empresa?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/sucursal', sucursal.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

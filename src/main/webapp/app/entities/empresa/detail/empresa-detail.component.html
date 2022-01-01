@@ -1,0 +1,133 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="empresa">
+      <h2 data-cy="empresaDetailsHeading"><span jhiTranslate="contable4App.empresa.detail.title">Empresa</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ empresa.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.empresa.razonSocial">Razon Social</span></dt>
+        <dd>
+          <span>{{ empresa.razonSocial }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.empresa.nombreComercial">Nombre Comercial</span></dt>
+        <dd>
+          <span>{{ empresa.nombreComercial }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.empresa.tipoDocumento">Tipo Documento</span></dt>
+        <dd>
+          <span>{{ empresa.tipoDocumento }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.empresa.documento">Documento</span></dt>
+        <dd>
+          <span>{{ empresa.documento }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.empresa.dv">Dv</span></dt>
+        <dd>
+          <span>{{ empresa.dv }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.empresa.direccion">Direccion</span></dt>
+        <dd>
+          <span>{{ empresa.direccion }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.empresa.indicativo">Indicativo</span></dt>
+        <dd>
+          <span>{{ empresa.indicativo }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.empresa.telefono">Telefono</span></dt>
+        <dd>
+          <span>{{ empresa.telefono }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.empresa.email">Email</span></dt>
+        <dd>
+          <span>{{ empresa.email }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.empresa.logo">Logo</span></dt>
+        <dd>
+          <span>{{ empresa.logo }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.empresa.resolucionFacturas">Resolucion Facturas</span></dt>
+        <dd>
+          <span>{{ empresa.resolucionFacturas }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.empresa.prefijoInicial">Prefijo Inicial</span></dt>
+        <dd>
+          <span>{{ empresa.prefijoInicial }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.empresa.prefijoFinal">Prefijo Final</span></dt>
+        <dd>
+          <span>{{ empresa.prefijoFinal }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.empresa.prefijoActual">Prefijo Actual</span></dt>
+        <dd>
+          <span>{{ empresa.prefijoActual }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.empresa.descripcion">Descripcion</span></dt>
+        <dd>
+          <span>{{ empresa.descripcion }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.empresa.fechaRegistro">Fecha Registro</span></dt>
+        <dd>
+          <span>{{ empresa.fechaRegistro | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.empresa.estado">Estado</span></dt>
+        <dd>
+          <span>{{ empresa.estado }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.empresa.regimen">Regimen</span></dt>
+        <dd>
+          <div *ngIf="empresa.regimen">
+            <a [routerLink]="['/regimen', empresa.regimen?.id, 'view']">{{ empresa.regimen?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="contable4App.empresa.municipio">Municipio</span></dt>
+        <dd>
+          <div *ngIf="empresa.municipio">
+            <a [routerLink]="['/municipio', empresa.municipio?.id, 'view']">{{ empresa.municipio?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="contable4App.empresa.ciudad">Ciudad</span></dt>
+        <dd>
+          <div *ngIf="empresa.ciudad">
+            <a [routerLink]="['/ciudad', empresa.ciudad?.id, 'view']">{{ empresa.ciudad?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="contable4App.empresa.departamento">Departamento</span></dt>
+        <dd>
+          <div *ngIf="empresa.departamento">
+            <a [routerLink]="['/departamento', empresa.departamento?.id, 'view']">{{ empresa.departamento?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="contable4App.empresa.pais">Pais</span></dt>
+        <dd>
+          <div *ngIf="empresa.pais">
+            <a [routerLink]="['/pais', empresa.pais?.id, 'view']">{{ empresa.pais?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="contable4App.empresa.usuario">Usuario</span></dt>
+        <dd>
+          <span *ngFor="let usuario of empresa.usuarios; let last = last">
+            <a [routerLink]="['/usuario', usuario?.id, 'view']">{{ usuario.id }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/empresa', empresa.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

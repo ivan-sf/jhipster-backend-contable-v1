@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+    <!--
+        Added the constraints for entity DetalleFactura.
+    -->
+    <changeSet id="20220102042131-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="objeto_id"
+                                 baseTableName="detalle_factura"
+                                 constraintName="fk_detalle_factura__objeto_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="objeto"/>
+
+        <addForeignKeyConstraint baseColumnNames="factura_id"
+                                 baseTableName="detalle_factura"
+                                 constraintName="fk_detalle_factura__factura_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="factura"/>
+    </changeSet>
+</databaseChangeLog>

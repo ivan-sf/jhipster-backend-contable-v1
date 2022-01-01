@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+    <!--
+        Added the constraints for entity Objeto.
+    -->
+    <changeSet id="20220102042133-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="tipo_objeto_id"
+                                 baseTableName="objeto"
+                                 constraintName="fk_objeto__tipo_objeto_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tipo_objeto"/>
+
+        <addForeignKeyConstraint baseColumnNames="usuario_id"
+                                 baseTableName="objeto"
+                                 constraintName="fk_objeto__usuario_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="usuario"/>
+
+        <addForeignKeyConstraint baseColumnNames="sector_id"
+                                 baseTableName="objeto"
+                                 constraintName="fk_objeto__sector_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="sector"/>
+    </changeSet>
+</databaseChangeLog>

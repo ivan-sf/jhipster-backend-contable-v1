@@ -1,0 +1,24 @@
+{
+  "contable4App": {
+    "lote": {
+      "home": {
+        "title": "Lotes",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Lote",
+        "createOrEditLabel": "Crear o editar Lote",
+        "notFound": "Ningún Lotes encontrado"
+      },
+      "created": "Un nuevo Lote ha sido creado con el identificador {{ param }}",
+      "updated": "Un Lote ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Lote ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Lote {{ id }}?"
+      },
+      "detail": {
+        "title": "Lote"
+      },
+      "id": "ID",
+      "numero": "Numero"
+    }
+  }
+}

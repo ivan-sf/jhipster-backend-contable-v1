@@ -1,0 +1,28 @@
+{
+  "name": "TipoObjeto",
+  "fields": [
+    {
+      "fieldName": "nombre",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "fechaRegistro",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "codigoDian",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [],
+  "entityTableName": "tipo_objeto",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20220102042139"
+}

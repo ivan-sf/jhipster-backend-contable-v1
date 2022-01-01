@@ -1,0 +1,27 @@
+{
+  "contable4App": {
+    "tipoFactura": {
+      "home": {
+        "title": "Tipo Facturas",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Tipo Factura",
+        "createOrEditLabel": "Crear o editar Tipo Factura",
+        "notFound": "Ningún Tipo Facturas encontrado"
+      },
+      "created": "Un nuevo Tipo Factura ha sido creado con el identificador {{ param }}",
+      "updated": "Un Tipo Factura ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Tipo Factura ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Tipo Factura {{ id }}?"
+      },
+      "detail": {
+        "title": "Tipo Factura"
+      },
+      "id": "ID",
+      "nombre": "Nombre",
+      "prefijoInicial": "Prefijo Inicial",
+      "prefijoFinal": "Prefijo Final",
+      "prefijoActual": "Prefijo Actual"
+    }
+  }
+}

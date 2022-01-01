@@ -1,0 +1,24 @@
+{
+  "name": "Departamento",
+  "fields": [
+    {
+      "fieldName": "nombre",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "codigoDIAN",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [],
+  "entityTableName": "departamento",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20220102042126"
+}

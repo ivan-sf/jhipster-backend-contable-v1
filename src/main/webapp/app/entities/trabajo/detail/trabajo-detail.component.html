@@ -1,0 +1,56 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="trabajo">
+      <h2 data-cy="trabajoDetailsHeading"><span jhiTranslate="contable4App.trabajo.detail.title">Trabajo</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ trabajo.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.trabajo.nombre">Nombre</span></dt>
+        <dd>
+          <span>{{ trabajo.nombre }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.trabajo.cargo">Cargo</span></dt>
+        <dd>
+          <span>{{ trabajo.cargo }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.trabajo.salario">Salario</span></dt>
+        <dd>
+          <span>{{ trabajo.salario }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.trabajo.salud">Salud</span></dt>
+        <dd>
+          <span>{{ trabajo.salud }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.trabajo.pension">Pension</span></dt>
+        <dd>
+          <span>{{ trabajo.pension }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.trabajo.observacon">Observacon</span></dt>
+        <dd>
+          <span>{{ trabajo.observacon }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.trabajo.fechaRegistro">Fecha Registro</span></dt>
+        <dd>
+          <span>{{ trabajo.fechaRegistro }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/trabajo', trabajo.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,112 @@
+{
+  "name": "Factura",
+  "fields": [
+    {
+      "fieldName": "numero",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "caja",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "estado",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "iva19",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "baseIva19",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "iva5",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "baseIva5",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "iva0",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "baseIva0",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "total",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "pago",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "saldo",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "fechaRegistro",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "fechaActualizacion",
+      "fieldType": "Instant"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "sucursal",
+      "otherEntityRelationshipName": "factura",
+      "relationshipName": "sucursal",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "tipoFactura",
+      "otherEntityRelationshipName": "factura",
+      "relationshipName": "tipoFactura",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "notaContable",
+      "otherEntityRelationshipName": "factura",
+      "relationshipName": "notaContable",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "detalleFactura",
+      "otherEntityRelationshipName": "factura",
+      "relationshipName": "detalleFactura"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "cliente",
+      "otherEntityRelationshipName": "factura",
+      "relationshipName": "cliente"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "empleado",
+      "otherEntityRelationshipName": "factura",
+      "relationshipName": "empleadp"
+    }
+  ],
+  "entityTableName": "factura",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20220102042128"
+}

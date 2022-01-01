@@ -1,0 +1,103 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-detalle-factura-heading"
+        data-cy="DetalleFacturaCreateUpdateHeading"
+        jhiTranslate="contable4App.detalleFactura.home.createOrEditLabel"
+      >
+        Create or edit a Detalle Factura
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.detalleFactura.precio" for="field_precio">Precio</label>
+          <input type="number" class="form-control" name="precio" id="field_precio" data-cy="precio" formControlName="precio" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.detalleFactura.cantidad" for="field_cantidad">Cantidad</label>
+          <input type="number" class="form-control" name="cantidad" id="field_cantidad" data-cy="cantidad" formControlName="cantidad" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.detalleFactura.total" for="field_total">Total</label>
+          <input type="number" class="form-control" name="total" id="field_total" data-cy="total" formControlName="total" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.detalleFactura.iva" for="field_iva">Iva</label>
+          <input type="number" class="form-control" name="iva" id="field_iva" data-cy="iva" formControlName="iva" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.detalleFactura.valorImpuesto" for="field_valorImpuesto"
+            >Valor Impuesto</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="valorImpuesto"
+            id="field_valorImpuesto"
+            data-cy="valorImpuesto"
+            formControlName="valorImpuesto"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.detalleFactura.estado" for="field_estado">Estado</label>
+          <input type="number" class="form-control" name="estado" id="field_estado" data-cy="estado" formControlName="estado" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.detalleFactura.objeto" for="field_objeto">Objeto</label>
+          <select class="form-control" id="field_objeto" data-cy="objeto" name="objeto" formControlName="objeto">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="objetoOption.id === editForm.get('objeto')!.value?.id ? editForm.get('objeto')!.value : objetoOption"
+              *ngFor="let objetoOption of objetosCollection; trackBy: trackObjetoById"
+            >
+              {{ objetoOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.detalleFactura.factura" for="field_factura">Factura</label>
+          <select class="form-control" id="field_factura" data-cy="factura" name="factura" formControlName="factura">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="facturaOption.id === editForm.get('factura')!.value?.id ? editForm.get('factura')!.value : facturaOption"
+              *ngFor="let facturaOption of facturasSharedCollection; trackBy: trackFacturaById"
+            >
+              {{ facturaOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

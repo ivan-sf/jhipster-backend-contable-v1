@@ -1,0 +1,67 @@
+{
+  "name": "Objeto",
+  "fields": [
+    {
+      "fieldName": "nombre",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cantidad",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "codigoDian",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "detalleObjeto",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "vencimiento",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "fechaRegistro",
+      "fieldType": "Instant"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "tipoObjeto",
+      "otherEntityRelationshipName": "objeto",
+      "relationshipName": "tipoObjeto",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "usuario",
+      "otherEntityRelationshipName": "objeto",
+      "relationshipName": "usuario",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "codigo",
+      "otherEntityRelationshipName": "objeto",
+      "relationshipName": "codigo"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "sector",
+      "otherEntityRelationshipName": "objeto",
+      "relationshipName": "sector"
+    }
+  ],
+  "entityTableName": "objeto",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20220102042133"
+}

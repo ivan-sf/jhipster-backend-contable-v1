@@ -1,0 +1,60 @@
+{
+  "name": "Codigo",
+  "fields": [
+    {
+      "fieldName": "barCode",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "qrCode",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "cantidad",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "fechaRegistro",
+      "fieldType": "Instant"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "paquete",
+      "otherEntityRelationshipName": "codigo",
+      "relationshipName": "paquete",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "lote",
+      "otherEntityRelationshipName": "codigo",
+      "relationshipName": "lote",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "vencimiento",
+      "otherEntityRelationshipName": "codigo",
+      "relationshipName": "vencimiento",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "objeto",
+      "otherEntityRelationshipName": "codigo",
+      "relationshipName": "objeto"
+    }
+  ],
+  "entityTableName": "codigo",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20220102042134"
+}

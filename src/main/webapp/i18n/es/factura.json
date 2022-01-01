@@ -1,0 +1,43 @@
+{
+  "contable4App": {
+    "factura": {
+      "home": {
+        "title": "Facturas",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Factura",
+        "createOrEditLabel": "Crear o editar Factura",
+        "notFound": "Ningún Facturas encontrado"
+      },
+      "created": "Un nuevo Factura ha sido creado con el identificador {{ param }}",
+      "updated": "Un Factura ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Factura ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Factura {{ id }}?"
+      },
+      "detail": {
+        "title": "Factura"
+      },
+      "id": "ID",
+      "numero": "Numero",
+      "caja": "Caja",
+      "estado": "Estado",
+      "iva19": "Iva 19",
+      "baseIva19": "Base Iva 19",
+      "iva5": "Iva 5",
+      "baseIva5": "Base Iva 5",
+      "iva0": "Iva 0",
+      "baseIva0": "Base Iva 0",
+      "total": "Total",
+      "pago": "Pago",
+      "saldo": "Saldo",
+      "fechaRegistro": "Fecha Registro",
+      "fechaActualizacion": "Fecha Actualizacion",
+      "sucursal": "Sucursal",
+      "tipoFactura": "Tipo Factura",
+      "notaContable": "Nota Contable",
+      "detalleFactura": "Detalle Factura",
+      "cliente": "Cliente",
+      "empleadp": "Empleadp"
+    }
+  }
+}

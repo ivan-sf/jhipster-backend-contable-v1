@@ -1,0 +1,32 @@
+{
+  "name": "TipoFactura",
+  "fields": [
+    {
+      "fieldName": "nombre",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "prefijoInicial",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "prefijoFinal",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "prefijoActual",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [],
+  "entityTableName": "tipo_factura",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20220102042129"
+}

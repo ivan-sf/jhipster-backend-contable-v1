@@ -1,0 +1,54 @@
+{
+  "name": "DetalleFactura",
+  "fields": [
+    {
+      "fieldName": "precio",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "cantidad",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "total",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "iva",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "valorImpuesto",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "estado",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "objeto",
+      "otherEntityRelationshipName": "detalleFactura",
+      "relationshipName": "objeto",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "factura",
+      "otherEntityRelationshipName": "detalleFactura",
+      "relationshipName": "factura"
+    }
+  ],
+  "entityTableName": "detalle_factura",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20220102042131"
+}

@@ -1,0 +1,30 @@
+{
+  "contable4App": {
+    "trabajo": {
+      "home": {
+        "title": "Trabajos",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Trabajo",
+        "createOrEditLabel": "Crear o editar Trabajo",
+        "notFound": "Ningún Trabajos encontrado"
+      },
+      "created": "Un nuevo Trabajo ha sido creado con el identificador {{ param }}",
+      "updated": "Un Trabajo ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Trabajo ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Trabajo {{ id }}?"
+      },
+      "detail": {
+        "title": "Trabajo"
+      },
+      "id": "ID",
+      "nombre": "Nombre",
+      "cargo": "Cargo",
+      "salario": "Salario",
+      "salud": "Salud",
+      "pension": "Pension",
+      "observacon": "Observacon",
+      "fechaRegistro": "Fecha Registro"
+    }
+  }
+}

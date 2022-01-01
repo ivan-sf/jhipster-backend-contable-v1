@@ -1,0 +1,144 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="usuario">
+      <h2 data-cy="usuarioDetailsHeading"><span jhiTranslate="contable4App.usuario.detail.title">Usuario</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ usuario.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.usuario.nombres">Nombres</span></dt>
+        <dd>
+          <span>{{ usuario.nombres }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.usuario.apellidos">Apellidos</span></dt>
+        <dd>
+          <span>{{ usuario.apellidos }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.usuario.tipoPersona">Tipo Persona</span></dt>
+        <dd>
+          <span>{{ usuario.tipoPersona }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.usuario.tipoDocumento">Tipo Documento</span></dt>
+        <dd>
+          <span>{{ usuario.tipoDocumento }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.usuario.documento">Documento</span></dt>
+        <dd>
+          <span>{{ usuario.documento }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.usuario.dv">Dv</span></dt>
+        <dd>
+          <span>{{ usuario.dv }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.usuario.estado">Estado</span></dt>
+        <dd>
+          <span>{{ usuario.estado }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.usuario.rol">Rol</span></dt>
+        <dd>
+          <span>{{ usuario.rol }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.usuario.rut">Rut</span></dt>
+        <dd>
+          <span>{{ usuario.rut }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.usuario.nombreComercial">Nombre Comercial</span></dt>
+        <dd>
+          <span>{{ usuario.nombreComercial }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.usuario.nit">Nit</span></dt>
+        <dd>
+          <span>{{ usuario.nit }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.usuario.direccion">Direccion</span></dt>
+        <dd>
+          <span>{{ usuario.direccion }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.usuario.indicativo">Indicativo</span></dt>
+        <dd>
+          <span>{{ usuario.indicativo }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.usuario.telefono">Telefono</span></dt>
+        <dd>
+          <span>{{ usuario.telefono }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.usuario.email">Email</span></dt>
+        <dd>
+          <span>{{ usuario.email }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.usuario.genero">Genero</span></dt>
+        <dd>
+          <span>{{ usuario.genero }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.usuario.edad">Edad</span></dt>
+        <dd>
+          <span>{{ usuario.edad | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.usuario.foto">Foto</span></dt>
+        <dd>
+          <span>{{ usuario.foto }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.usuario.descripcion">Descripcion</span></dt>
+        <dd>
+          <span>{{ usuario.descripcion }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.usuario.fechaRegistro">Fecha Registro</span></dt>
+        <dd>
+          <span>{{ usuario.fechaRegistro | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.usuario.cliente">Cliente</span></dt>
+        <dd>
+          <div *ngIf="usuario.cliente">
+            <a [routerLink]="['/cliente', usuario.cliente?.id, 'view']">{{ usuario.cliente?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="contable4App.usuario.empleado">Empleado</span></dt>
+        <dd>
+          <div *ngIf="usuario.empleado">
+            <a [routerLink]="['/empleado', usuario.empleado?.id, 'view']">{{ usuario.empleado?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="contable4App.usuario.municipio">Municipio</span></dt>
+        <dd>
+          <div *ngIf="usuario.municipio">
+            <a [routerLink]="['/municipio', usuario.municipio?.id, 'view']">{{ usuario.municipio?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="contable4App.usuario.ciudad">Ciudad</span></dt>
+        <dd>
+          <div *ngIf="usuario.ciudad">
+            <a [routerLink]="['/ciudad', usuario.ciudad?.id, 'view']">{{ usuario.ciudad?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="contable4App.usuario.departamento">Departamento</span></dt>
+        <dd>
+          <div *ngIf="usuario.departamento">
+            <a [routerLink]="['/departamento', usuario.departamento?.id, 'view']">{{ usuario.departamento?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="contable4App.usuario.pais">Pais</span></dt>
+        <dd>
+          <div *ngIf="usuario.pais">
+            <a [routerLink]="['/pais', usuario.pais?.id, 'view']">{{ usuario.pais?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/usuario', usuario.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

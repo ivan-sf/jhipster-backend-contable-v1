@@ -1,0 +1,24 @@
+{
+  "contable4App": {
+    "notaContable": {
+      "home": {
+        "title": "Nota Contables",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Nota Contable",
+        "createOrEditLabel": "Crear o editar Nota Contable",
+        "notFound": "Ningún Nota Contables encontrado"
+      },
+      "created": "Un nuevo Nota Contable ha sido creado con el identificador {{ param }}",
+      "updated": "Un Nota Contable ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Nota Contable ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Nota Contable {{ id }}?"
+      },
+      "detail": {
+        "title": "Nota Contable"
+      },
+      "id": "ID",
+      "numero": "Numero"
+    }
+  }
+}

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+    <!--
+        Added the constraints for entity Codigo.
+    -->
+    <changeSet id="20220102042134-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="paquete_id"
+                                 baseTableName="codigo"
+                                 constraintName="fk_codigo__paquete_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="paquete"/>
+
+        <addForeignKeyConstraint baseColumnNames="lote_id"
+                                 baseTableName="codigo"
+                                 constraintName="fk_codigo__lote_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="lote"/>
+
+        <addForeignKeyConstraint baseColumnNames="vencimiento_id"
+                                 baseTableName="codigo"
+                                 constraintName="fk_codigo__vencimiento_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="vencimiento"/>
+
+        <addForeignKeyConstraint baseColumnNames="objeto_id"
+                                 baseTableName="codigo"
+                                 constraintName="fk_codigo__objeto_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="objeto"/>
+    </changeSet>
+</databaseChangeLog>

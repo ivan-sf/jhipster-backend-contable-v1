@@ -1,0 +1,26 @@
+{
+  "contable4App": {
+    "precio": {
+      "home": {
+        "title": "Precios",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Precio",
+        "createOrEditLabel": "Crear o editar Precio",
+        "notFound": "Ningún Precios encontrado"
+      },
+      "created": "Un nuevo Precio ha sido creado con el identificador {{ param }}",
+      "updated": "Un Precio ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Precio ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Precio {{ id }}?"
+      },
+      "detail": {
+        "title": "Precio"
+      },
+      "id": "ID",
+      "valorVenta": "Valor Venta",
+      "valorCompra": "Valor Compra",
+      "paquete": "Paquete"
+    }
+  }
+}

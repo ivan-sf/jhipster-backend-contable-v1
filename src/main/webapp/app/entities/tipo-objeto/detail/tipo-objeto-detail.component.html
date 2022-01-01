@@ -1,0 +1,40 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="tipoObjeto">
+      <h2 data-cy="tipoObjetoDetailsHeading"><span jhiTranslate="contable4App.tipoObjeto.detail.title">Tipo Objeto</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ tipoObjeto.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.tipoObjeto.nombre">Nombre</span></dt>
+        <dd>
+          <span>{{ tipoObjeto.nombre }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.tipoObjeto.fechaRegistro">Fecha Registro</span></dt>
+        <dd>
+          <span>{{ tipoObjeto.fechaRegistro }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.tipoObjeto.codigoDian">Codigo Dian</span></dt>
+        <dd>
+          <span>{{ tipoObjeto.codigoDian }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/tipo-objeto', tipoObjeto.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

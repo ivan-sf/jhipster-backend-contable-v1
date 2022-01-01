@@ -1,0 +1,44 @@
+{
+  "name": "Trabajo",
+  "fields": [
+    {
+      "fieldName": "nombre",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cargo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "salario",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "salud",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "pension",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "observacon",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "fechaRegistro",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [],
+  "entityTableName": "trabajo",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20220102042123"
+}

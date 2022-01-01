@@ -1,0 +1,26 @@
+{
+  "contable4App": {
+    "tipoObjeto": {
+      "home": {
+        "title": "Tipo Objetos",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Tipo Objeto",
+        "createOrEditLabel": "Crear o editar Tipo Objeto",
+        "notFound": "Ningún Tipo Objetos encontrado"
+      },
+      "created": "Un nuevo Tipo Objeto ha sido creado con el identificador {{ param }}",
+      "updated": "Un Tipo Objeto ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Tipo Objeto ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Tipo Objeto {{ id }}?"
+      },
+      "detail": {
+        "title": "Tipo Objeto"
+      },
+      "id": "ID",
+      "nombre": "Nombre",
+      "fechaRegistro": "Fecha Registro",
+      "codigoDian": "Codigo Dian"
+    }
+  }
+}

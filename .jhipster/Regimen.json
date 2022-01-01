@@ -1,0 +1,28 @@
+{
+  "name": "Regimen",
+  "fields": [
+    {
+      "fieldName": "tipoRegimen",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nombreRegimen",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "fechaRegistro",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [],
+  "entityTableName": "regimen",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20220102042119"
+}

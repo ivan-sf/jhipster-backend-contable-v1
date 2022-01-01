@@ -1,0 +1,130 @@
+<div>
+  <h2 id="page-heading" data-cy="CodigoHeading">
+    <span jhiTranslate="contable4App.codigo.home.title">Codigos</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadPage()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="contable4App.codigo.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-codigo"
+        [routerLink]="['/codigo/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="contable4App.codigo.home.createLabel"> Create a new Codigo </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="codigos?.length === 0">
+    <span jhiTranslate="contable4App.codigo.home.notFound">No codigos found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="codigos && codigos.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="loadPage()">
+          <th scope="col" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="barCode">
+            <span jhiTranslate="contable4App.codigo.barCode">Bar Code</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="qrCode">
+            <span jhiTranslate="contable4App.codigo.qrCode">Qr Code</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="cantidad">
+            <span jhiTranslate="contable4App.codigo.cantidad">Cantidad</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="fechaRegistro">
+            <span jhiTranslate="contable4App.codigo.fechaRegistro">Fecha Registro</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="paquete.id">
+            <span jhiTranslate="contable4App.codigo.paquete">Paquete</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="lote.id"><span jhiTranslate="contable4App.codigo.lote">Lote</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="vencimiento.id">
+            <span jhiTranslate="contable4App.codigo.vencimiento">Vencimiento</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="objeto.id">
+            <span jhiTranslate="contable4App.codigo.objeto">Objeto</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let codigo of codigos; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/codigo', codigo.id, 'view']">{{ codigo.id }}</a>
+          </td>
+          <td>{{ codigo.barCode }}</td>
+          <td>{{ codigo.qrCode }}</td>
+          <td>{{ codigo.cantidad }}</td>
+          <td>{{ codigo.fechaRegistro | formatMediumDatetime }}</td>
+          <td>
+            <div *ngIf="codigo.paquete">
+              <a [routerLink]="['/paquete', codigo.paquete?.id, 'view']">{{ codigo.paquete?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="codigo.lote">
+              <a [routerLink]="['/lote', codigo.lote?.id, 'view']">{{ codigo.lote?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="codigo.vencimiento">
+              <a [routerLink]="['/vencimiento', codigo.vencimiento?.id, 'view']">{{ codigo.vencimiento?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="codigo.objeto">
+              <a [routerLink]="['/objeto', codigo.objeto?.id, 'view']">{{ codigo.objeto?.id }}</a>
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button type="submit" [routerLink]="['/codigo', codigo.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button type="submit" [routerLink]="['/codigo', codigo.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(codigo)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="codigos && codigos.length > 0">
+    <div class="row justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="row justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [(page)]="ngbPaginationPage"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="loadPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,41 @@
+{
+  "contable4App": {
+    "sucursal": {
+      "home": {
+        "title": "Sucursals",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Sucursal",
+        "createOrEditLabel": "Crear o editar Sucursal",
+        "notFound": "Ningún Sucursals encontrado"
+      },
+      "created": "Un nuevo Sucursal ha sido creado con el identificador {{ param }}",
+      "updated": "Un Sucursal ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Sucursal ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Sucursal {{ id }}?"
+      },
+      "detail": {
+        "title": "Sucursal"
+      },
+      "id": "ID",
+      "nombre": "Nombre",
+      "direccion": "Direccion",
+      "indicativo": "Indicativo",
+      "telefono": "Telefono",
+      "email": "Email",
+      "logo": "Logo",
+      "resolucionFacturas": "Resolucion Facturas",
+      "prefijoInicial": "Prefijo Inicial",
+      "prefijoFinal": "Prefijo Final",
+      "prefijoActual": "Prefijo Actual",
+      "descripcion": "Descripcion",
+      "fechaRegistro": "Fecha Registro",
+      "regimen": "Regimen",
+      "municipio": "Municipio",
+      "ciudad": "Ciudad",
+      "departamento": "Departamento",
+      "pais": "Pais",
+      "empresa": "Empresa"
+    }
+  }
+}

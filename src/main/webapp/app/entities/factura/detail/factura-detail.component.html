@@ -1,0 +1,114 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="factura">
+      <h2 data-cy="facturaDetailsHeading"><span jhiTranslate="contable4App.factura.detail.title">Factura</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ factura.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.factura.numero">Numero</span></dt>
+        <dd>
+          <span>{{ factura.numero }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.factura.caja">Caja</span></dt>
+        <dd>
+          <span>{{ factura.caja }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.factura.estado">Estado</span></dt>
+        <dd>
+          <span>{{ factura.estado }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.factura.iva19">Iva 19</span></dt>
+        <dd>
+          <span>{{ factura.iva19 }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.factura.baseIva19">Base Iva 19</span></dt>
+        <dd>
+          <span>{{ factura.baseIva19 }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.factura.iva5">Iva 5</span></dt>
+        <dd>
+          <span>{{ factura.iva5 }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.factura.baseIva5">Base Iva 5</span></dt>
+        <dd>
+          <span>{{ factura.baseIva5 }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.factura.iva0">Iva 0</span></dt>
+        <dd>
+          <span>{{ factura.iva0 }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.factura.baseIva0">Base Iva 0</span></dt>
+        <dd>
+          <span>{{ factura.baseIva0 }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.factura.total">Total</span></dt>
+        <dd>
+          <span>{{ factura.total }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.factura.pago">Pago</span></dt>
+        <dd>
+          <span>{{ factura.pago }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.factura.saldo">Saldo</span></dt>
+        <dd>
+          <span>{{ factura.saldo }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.factura.fechaRegistro">Fecha Registro</span></dt>
+        <dd>
+          <span>{{ factura.fechaRegistro | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.factura.fechaActualizacion">Fecha Actualizacion</span></dt>
+        <dd>
+          <span>{{ factura.fechaActualizacion | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.factura.sucursal">Sucursal</span></dt>
+        <dd>
+          <div *ngIf="factura.sucursal">
+            <a [routerLink]="['/sucursal', factura.sucursal?.id, 'view']">{{ factura.sucursal?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="contable4App.factura.tipoFactura">Tipo Factura</span></dt>
+        <dd>
+          <div *ngIf="factura.tipoFactura">
+            <a [routerLink]="['/tipo-factura', factura.tipoFactura?.id, 'view']">{{ factura.tipoFactura?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="contable4App.factura.notaContable">Nota Contable</span></dt>
+        <dd>
+          <div *ngIf="factura.notaContable">
+            <a [routerLink]="['/nota-contable', factura.notaContable?.id, 'view']">{{ factura.notaContable?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="contable4App.factura.cliente">Cliente</span></dt>
+        <dd>
+          <div *ngIf="factura.cliente">
+            <a [routerLink]="['/cliente', factura.cliente?.id, 'view']">{{ factura.cliente?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="contable4App.factura.empleadp">Empleadp</span></dt>
+        <dd>
+          <div *ngIf="factura.empleadp">
+            <a [routerLink]="['/empleado', factura.empleadp?.id, 'view']">{{ factura.empleadp?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/factura', factura.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

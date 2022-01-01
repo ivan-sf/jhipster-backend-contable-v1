@@ -1,0 +1,62 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="empleado">
+      <h2 data-cy="empleadoDetailsHeading"><span jhiTranslate="contable4App.empleado.detail.title">Empleado</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ empleado.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.empleado.nombres">Nombres</span></dt>
+        <dd>
+          <span>{{ empleado.nombres }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.empleado.apellidos">Apellidos</span></dt>
+        <dd>
+          <span>{{ empleado.apellidos }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.empleado.tipoPersona">Tipo Persona</span></dt>
+        <dd>
+          <span>{{ empleado.tipoPersona }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.empleado.tipoDocumento">Tipo Documento</span></dt>
+        <dd>
+          <span>{{ empleado.tipoDocumento }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.empleado.documento">Documento</span></dt>
+        <dd>
+          <span>{{ empleado.documento }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.empleado.dv">Dv</span></dt>
+        <dd>
+          <span>{{ empleado.dv }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.empleado.estado">Estado</span></dt>
+        <dd>
+          <span>{{ empleado.estado }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.empleado.trabajo">Trabajo</span></dt>
+        <dd>
+          <div *ngIf="empleado.trabajo">
+            <a [routerLink]="['/trabajo', empleado.trabajo?.id, 'view']">{{ empleado.trabajo?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/empleado', empleado.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

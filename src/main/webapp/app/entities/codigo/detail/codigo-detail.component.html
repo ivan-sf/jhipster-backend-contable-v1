@@ -1,0 +1,68 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="codigo">
+      <h2 data-cy="codigoDetailsHeading"><span jhiTranslate="contable4App.codigo.detail.title">Codigo</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ codigo.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.codigo.barCode">Bar Code</span></dt>
+        <dd>
+          <span>{{ codigo.barCode }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.codigo.qrCode">Qr Code</span></dt>
+        <dd>
+          <span>{{ codigo.qrCode }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.codigo.cantidad">Cantidad</span></dt>
+        <dd>
+          <span>{{ codigo.cantidad }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.codigo.fechaRegistro">Fecha Registro</span></dt>
+        <dd>
+          <span>{{ codigo.fechaRegistro | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="contable4App.codigo.paquete">Paquete</span></dt>
+        <dd>
+          <div *ngIf="codigo.paquete">
+            <a [routerLink]="['/paquete', codigo.paquete?.id, 'view']">{{ codigo.paquete?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="contable4App.codigo.lote">Lote</span></dt>
+        <dd>
+          <div *ngIf="codigo.lote">
+            <a [routerLink]="['/lote', codigo.lote?.id, 'view']">{{ codigo.lote?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="contable4App.codigo.vencimiento">Vencimiento</span></dt>
+        <dd>
+          <div *ngIf="codigo.vencimiento">
+            <a [routerLink]="['/vencimiento', codigo.vencimiento?.id, 'view']">{{ codigo.vencimiento?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="contable4App.codigo.objeto">Objeto</span></dt>
+        <dd>
+          <div *ngIf="codigo.objeto">
+            <a [routerLink]="['/objeto', codigo.objeto?.id, 'view']">{{ codigo.objeto?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/codigo', codigo.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

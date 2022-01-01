@@ -1,0 +1,27 @@
+{
+  "name": "Paquete",
+  "fields": [
+    {
+      "fieldName": "cantidad",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "precio",
+      "otherEntityRelationshipName": "paquete",
+      "relationshipName": "precio"
+    }
+  ],
+  "entityTableName": "paquete",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20220102042136"
+}

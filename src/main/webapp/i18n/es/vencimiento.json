@@ -1,0 +1,24 @@
+{
+  "contable4App": {
+    "vencimiento": {
+      "home": {
+        "title": "Vencimientos",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Vencimiento",
+        "createOrEditLabel": "Crear o editar Vencimiento",
+        "notFound": "Ningún Vencimientos encontrado"
+      },
+      "created": "Un nuevo Vencimiento ha sido creado con el identificador {{ param }}",
+      "updated": "Un Vencimiento ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Vencimiento ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Vencimiento {{ id }}?"
+      },
+      "detail": {
+        "title": "Vencimiento"
+      },
+      "id": "ID",
+      "fecha": "Fecha"
+    }
+  }
+}

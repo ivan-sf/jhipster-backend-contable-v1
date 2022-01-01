@@ -1,0 +1,33 @@
+{
+  "contable4App": {
+    "objeto": {
+      "home": {
+        "title": "Objetos",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Objeto",
+        "createOrEditLabel": "Crear o editar Objeto",
+        "notFound": "Ningún Objetos encontrado"
+      },
+      "created": "Un nuevo Objeto ha sido creado con el identificador {{ param }}",
+      "updated": "Un Objeto ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Objeto ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Objeto {{ id }}?"
+      },
+      "detail": {
+        "title": "Objeto"
+      },
+      "id": "ID",
+      "nombre": "Nombre",
+      "cantidad": "Cantidad",
+      "codigoDian": "Codigo Dian",
+      "detalleObjeto": "Detalle Objeto",
+      "vencimiento": "Vencimiento",
+      "fechaRegistro": "Fecha Registro",
+      "tipoObjeto": "Tipo Objeto",
+      "usuario": "Usuario",
+      "codigo": "Codigo",
+      "sector": "Sector"
+    }
+  }
+}

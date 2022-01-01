@@ -1,0 +1,188 @@
+<div>
+  <h2 id="page-heading" data-cy="SucursalHeading">
+    <span jhiTranslate="contable4App.sucursal.home.title">Sucursals</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadPage()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="contable4App.sucursal.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-sucursal"
+        [routerLink]="['/sucursal/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="contable4App.sucursal.home.createLabel"> Create a new Sucursal </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="sucursals?.length === 0">
+    <span jhiTranslate="contable4App.sucursal.home.notFound">No sucursals found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="sucursals && sucursals.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="loadPage()">
+          <th scope="col" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="nombre">
+            <span jhiTranslate="contable4App.sucursal.nombre">Nombre</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="direccion">
+            <span jhiTranslate="contable4App.sucursal.direccion">Direccion</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="indicativo">
+            <span jhiTranslate="contable4App.sucursal.indicativo">Indicativo</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="telefono">
+            <span jhiTranslate="contable4App.sucursal.telefono">Telefono</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="email">
+            <span jhiTranslate="contable4App.sucursal.email">Email</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="logo"><span jhiTranslate="contable4App.sucursal.logo">Logo</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="resolucionFacturas">
+            <span jhiTranslate="contable4App.sucursal.resolucionFacturas">Resolucion Facturas</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="prefijoInicial">
+            <span jhiTranslate="contable4App.sucursal.prefijoInicial">Prefijo Inicial</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="prefijoFinal">
+            <span jhiTranslate="contable4App.sucursal.prefijoFinal">Prefijo Final</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="prefijoActual">
+            <span jhiTranslate="contable4App.sucursal.prefijoActual">Prefijo Actual</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="descripcion">
+            <span jhiTranslate="contable4App.sucursal.descripcion">Descripcion</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="fechaRegistro">
+            <span jhiTranslate="contable4App.sucursal.fechaRegistro">Fecha Registro</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="regimen.id">
+            <span jhiTranslate="contable4App.sucursal.regimen">Regimen</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="municipio.id">
+            <span jhiTranslate="contable4App.sucursal.municipio">Municipio</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="ciudad.id">
+            <span jhiTranslate="contable4App.sucursal.ciudad">Ciudad</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="departamento.id">
+            <span jhiTranslate="contable4App.sucursal.departamento">Departamento</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="pais.id">
+            <span jhiTranslate="contable4App.sucursal.pais">Pais</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="empresa.id">
+            <span jhiTranslate="contable4App.sucursal.empresa">Empresa</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let sucursal of sucursals; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/sucursal', sucursal.id, 'view']">{{ sucursal.id }}</a>
+          </td>
+          <td>{{ sucursal.nombre }}</td>
+          <td>{{ sucursal.direccion }}</td>
+          <td>{{ sucursal.indicativo }}</td>
+          <td>{{ sucursal.telefono }}</td>
+          <td>{{ sucursal.email }}</td>
+          <td>{{ sucursal.logo }}</td>
+          <td>{{ sucursal.resolucionFacturas }}</td>
+          <td>{{ sucursal.prefijoInicial }}</td>
+          <td>{{ sucursal.prefijoFinal }}</td>
+          <td>{{ sucursal.prefijoActual }}</td>
+          <td>{{ sucursal.descripcion }}</td>
+          <td>{{ sucursal.fechaRegistro | formatMediumDatetime }}</td>
+          <td>
+            <div *ngIf="sucursal.regimen">
+              <a [routerLink]="['/regimen', sucursal.regimen?.id, 'view']">{{ sucursal.regimen?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="sucursal.municipio">
+              <a [routerLink]="['/municipio', sucursal.municipio?.id, 'view']">{{ sucursal.municipio?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="sucursal.ciudad">
+              <a [routerLink]="['/ciudad', sucursal.ciudad?.id, 'view']">{{ sucursal.ciudad?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="sucursal.departamento">
+              <a [routerLink]="['/departamento', sucursal.departamento?.id, 'view']">{{ sucursal.departamento?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="sucursal.pais">
+              <a [routerLink]="['/pais', sucursal.pais?.id, 'view']">{{ sucursal.pais?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="sucursal.empresa">
+              <a [routerLink]="['/empresa', sucursal.empresa?.id, 'view']">{{ sucursal.empresa?.id }}</a>
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/sucursal', sucursal.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/sucursal', sucursal.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(sucursal)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="sucursals && sucursals.length > 0">
+    <div class="row justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="row justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [(page)]="ngbPaginationPage"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="loadPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

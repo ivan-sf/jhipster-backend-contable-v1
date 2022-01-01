@@ -1,0 +1,85 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-trabajo-heading" data-cy="TrabajoCreateUpdateHeading" jhiTranslate="contable4App.trabajo.home.createOrEditLabel">
+        Create or edit a Trabajo
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.trabajo.nombre" for="field_nombre">Nombre</label>
+          <input type="text" class="form-control" name="nombre" id="field_nombre" data-cy="nombre" formControlName="nombre" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.trabajo.cargo" for="field_cargo">Cargo</label>
+          <input type="text" class="form-control" name="cargo" id="field_cargo" data-cy="cargo" formControlName="cargo" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.trabajo.salario" for="field_salario">Salario</label>
+          <input type="number" class="form-control" name="salario" id="field_salario" data-cy="salario" formControlName="salario" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.trabajo.salud" for="field_salud">Salud</label>
+          <input type="text" class="form-control" name="salud" id="field_salud" data-cy="salud" formControlName="salud" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.trabajo.pension" for="field_pension">Pension</label>
+          <input type="text" class="form-control" name="pension" id="field_pension" data-cy="pension" formControlName="pension" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.trabajo.observacon" for="field_observacon">Observacon</label>
+          <input
+            type="text"
+            class="form-control"
+            name="observacon"
+            id="field_observacon"
+            data-cy="observacon"
+            formControlName="observacon"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.trabajo.fechaRegistro" for="field_fechaRegistro"
+            >Fecha Registro</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="fechaRegistro"
+            id="field_fechaRegistro"
+            data-cy="fechaRegistro"
+            formControlName="fechaRegistro"
+          />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

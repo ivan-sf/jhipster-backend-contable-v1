@@ -1,0 +1,41 @@
+{
+  "name": "Sector",
+  "fields": [
+    {
+      "fieldName": "nombre",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "valor",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "fechaRegistro",
+      "fieldType": "Instant"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "objeto",
+      "otherEntityRelationshipName": "sector",
+      "relationshipName": "objeto"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "inventario",
+      "otherEntityRelationshipName": "sector",
+      "relationshipName": "inventario"
+    }
+  ],
+  "entityTableName": "sector",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20220102042141"
+}

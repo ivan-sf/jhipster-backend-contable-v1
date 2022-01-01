@@ -1,0 +1,275 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-usuario-heading" data-cy="UsuarioCreateUpdateHeading" jhiTranslate="contable4App.usuario.home.createOrEditLabel">
+        Create or edit a Usuario
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.usuario.nombres" for="field_nombres">Nombres</label>
+          <input type="text" class="form-control" name="nombres" id="field_nombres" data-cy="nombres" formControlName="nombres" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.usuario.apellidos" for="field_apellidos">Apellidos</label>
+          <input type="text" class="form-control" name="apellidos" id="field_apellidos" data-cy="apellidos" formControlName="apellidos" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.usuario.tipoPersona" for="field_tipoPersona">Tipo Persona</label>
+          <input
+            type="text"
+            class="form-control"
+            name="tipoPersona"
+            id="field_tipoPersona"
+            data-cy="tipoPersona"
+            formControlName="tipoPersona"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.usuario.tipoDocumento" for="field_tipoDocumento"
+            >Tipo Documento</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="tipoDocumento"
+            id="field_tipoDocumento"
+            data-cy="tipoDocumento"
+            formControlName="tipoDocumento"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.usuario.documento" for="field_documento">Documento</label>
+          <input type="text" class="form-control" name="documento" id="field_documento" data-cy="documento" formControlName="documento" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.usuario.dv" for="field_dv">Dv</label>
+          <input type="text" class="form-control" name="dv" id="field_dv" data-cy="dv" formControlName="dv" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.usuario.estado" for="field_estado">Estado</label>
+          <input type="number" class="form-control" name="estado" id="field_estado" data-cy="estado" formControlName="estado" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.usuario.rol" for="field_rol">Rol</label>
+          <input type="text" class="form-control" name="rol" id="field_rol" data-cy="rol" formControlName="rol" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.usuario.rut" for="field_rut">Rut</label>
+          <input type="text" class="form-control" name="rut" id="field_rut" data-cy="rut" formControlName="rut" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.usuario.nombreComercial" for="field_nombreComercial"
+            >Nombre Comercial</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="nombreComercial"
+            id="field_nombreComercial"
+            data-cy="nombreComercial"
+            formControlName="nombreComercial"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.usuario.nit" for="field_nit">Nit</label>
+          <input type="text" class="form-control" name="nit" id="field_nit" data-cy="nit" formControlName="nit" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.usuario.direccion" for="field_direccion">Direccion</label>
+          <input type="text" class="form-control" name="direccion" id="field_direccion" data-cy="direccion" formControlName="direccion" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.usuario.indicativo" for="field_indicativo">Indicativo</label>
+          <input
+            type="number"
+            class="form-control"
+            name="indicativo"
+            id="field_indicativo"
+            data-cy="indicativo"
+            formControlName="indicativo"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.usuario.telefono" for="field_telefono">Telefono</label>
+          <input type="number" class="form-control" name="telefono" id="field_telefono" data-cy="telefono" formControlName="telefono" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.usuario.email" for="field_email">Email</label>
+          <input type="text" class="form-control" name="email" id="field_email" data-cy="email" formControlName="email" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.usuario.genero" for="field_genero">Genero</label>
+          <input type="text" class="form-control" name="genero" id="field_genero" data-cy="genero" formControlName="genero" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.usuario.edad" for="field_edad">Edad</label>
+          <div class="d-flex">
+            <input
+              id="field_edad"
+              data-cy="edad"
+              type="datetime-local"
+              class="form-control"
+              name="edad"
+              formControlName="edad"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.usuario.foto" for="field_foto">Foto</label>
+          <input type="text" class="form-control" name="foto" id="field_foto" data-cy="foto" formControlName="foto" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.usuario.descripcion" for="field_descripcion">Descripcion</label>
+          <input
+            type="number"
+            class="form-control"
+            name="descripcion"
+            id="field_descripcion"
+            data-cy="descripcion"
+            formControlName="descripcion"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.usuario.fechaRegistro" for="field_fechaRegistro"
+            >Fecha Registro</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_fechaRegistro"
+              data-cy="fechaRegistro"
+              type="datetime-local"
+              class="form-control"
+              name="fechaRegistro"
+              formControlName="fechaRegistro"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.usuario.cliente" for="field_cliente">Cliente</label>
+          <select class="form-control" id="field_cliente" data-cy="cliente" name="cliente" formControlName="cliente">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="clienteOption.id === editForm.get('cliente')!.value?.id ? editForm.get('cliente')!.value : clienteOption"
+              *ngFor="let clienteOption of clientesCollection; trackBy: trackClienteById"
+            >
+              {{ clienteOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.usuario.empleado" for="field_empleado">Empleado</label>
+          <select class="form-control" id="field_empleado" data-cy="empleado" name="empleado" formControlName="empleado">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="empleadoOption.id === editForm.get('empleado')!.value?.id ? editForm.get('empleado')!.value : empleadoOption"
+              *ngFor="let empleadoOption of empleadosCollection; trackBy: trackEmpleadoById"
+            >
+              {{ empleadoOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.usuario.municipio" for="field_municipio">Municipio</label>
+          <select class="form-control" id="field_municipio" data-cy="municipio" name="municipio" formControlName="municipio">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="municipioOption.id === editForm.get('municipio')!.value?.id ? editForm.get('municipio')!.value : municipioOption"
+              *ngFor="let municipioOption of municipiosSharedCollection; trackBy: trackMunicipioById"
+            >
+              {{ municipioOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.usuario.ciudad" for="field_ciudad">Ciudad</label>
+          <select class="form-control" id="field_ciudad" data-cy="ciudad" name="ciudad" formControlName="ciudad">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="ciudadOption.id === editForm.get('ciudad')!.value?.id ? editForm.get('ciudad')!.value : ciudadOption"
+              *ngFor="let ciudadOption of ciudadsSharedCollection; trackBy: trackCiudadById"
+            >
+              {{ ciudadOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.usuario.departamento" for="field_departamento">Departamento</label>
+          <select class="form-control" id="field_departamento" data-cy="departamento" name="departamento" formControlName="departamento">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                departamentoOption.id === editForm.get('departamento')!.value?.id ? editForm.get('departamento')!.value : departamentoOption
+              "
+              *ngFor="let departamentoOption of departamentosSharedCollection; trackBy: trackDepartamentoById"
+            >
+              {{ departamentoOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.usuario.pais" for="field_pais">Pais</label>
+          <select class="form-control" id="field_pais" data-cy="pais" name="pais" formControlName="pais">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="paisOption.id === editForm.get('pais')!.value?.id ? editForm.get('pais')!.value : paisOption"
+              *ngFor="let paisOption of paisSharedCollection; trackBy: trackPaisById"
+            >
+              {{ paisOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

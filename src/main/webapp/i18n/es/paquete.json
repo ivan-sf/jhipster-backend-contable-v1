@@ -1,0 +1,25 @@
+{
+  "contable4App": {
+    "paquete": {
+      "home": {
+        "title": "Paquetes",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Paquete",
+        "createOrEditLabel": "Crear o editar Paquete",
+        "notFound": "Ningún Paquetes encontrado"
+      },
+      "created": "Un nuevo Paquete ha sido creado con el identificador {{ param }}",
+      "updated": "Un Paquete ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Paquete ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Paquete {{ id }}?"
+      },
+      "detail": {
+        "title": "Paquete"
+      },
+      "id": "ID",
+      "cantidad": "Cantidad",
+      "precio": "Precio"
+    }
+  }
+}

@@ -1,0 +1,120 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-codigo-heading" data-cy="CodigoCreateUpdateHeading" jhiTranslate="contable4App.codigo.home.createOrEditLabel">
+        Create or edit a Codigo
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.codigo.barCode" for="field_barCode">Bar Code</label>
+          <input type="number" class="form-control" name="barCode" id="field_barCode" data-cy="barCode" formControlName="barCode" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.codigo.qrCode" for="field_qrCode">Qr Code</label>
+          <input type="number" class="form-control" name="qrCode" id="field_qrCode" data-cy="qrCode" formControlName="qrCode" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.codigo.cantidad" for="field_cantidad">Cantidad</label>
+          <input type="number" class="form-control" name="cantidad" id="field_cantidad" data-cy="cantidad" formControlName="cantidad" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.codigo.fechaRegistro" for="field_fechaRegistro"
+            >Fecha Registro</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_fechaRegistro"
+              data-cy="fechaRegistro"
+              type="datetime-local"
+              class="form-control"
+              name="fechaRegistro"
+              formControlName="fechaRegistro"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.codigo.paquete" for="field_paquete">Paquete</label>
+          <select class="form-control" id="field_paquete" data-cy="paquete" name="paquete" formControlName="paquete">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="paqueteOption.id === editForm.get('paquete')!.value?.id ? editForm.get('paquete')!.value : paqueteOption"
+              *ngFor="let paqueteOption of paquetesCollection; trackBy: trackPaqueteById"
+            >
+              {{ paqueteOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.codigo.lote" for="field_lote">Lote</label>
+          <select class="form-control" id="field_lote" data-cy="lote" name="lote" formControlName="lote">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="loteOption.id === editForm.get('lote')!.value?.id ? editForm.get('lote')!.value : loteOption"
+              *ngFor="let loteOption of lotesCollection; trackBy: trackLoteById"
+            >
+              {{ loteOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.codigo.vencimiento" for="field_vencimiento">Vencimiento</label>
+          <select class="form-control" id="field_vencimiento" data-cy="vencimiento" name="vencimiento" formControlName="vencimiento">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                vencimientoOption.id === editForm.get('vencimiento')!.value?.id ? editForm.get('vencimiento')!.value : vencimientoOption
+              "
+              *ngFor="let vencimientoOption of vencimientosCollection; trackBy: trackVencimientoById"
+            >
+              {{ vencimientoOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.codigo.objeto" for="field_objeto">Objeto</label>
+          <select class="form-control" id="field_objeto" data-cy="objeto" name="objeto" formControlName="objeto">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="objetoOption.id === editForm.get('objeto')!.value?.id ? editForm.get('objeto')!.value : objetoOption"
+              *ngFor="let objetoOption of objetosSharedCollection; trackBy: trackObjetoById"
+            >
+              {{ objetoOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

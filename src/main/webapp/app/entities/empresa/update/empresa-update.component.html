@@ -1,0 +1,283 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-empresa-heading" data-cy="EmpresaCreateUpdateHeading" jhiTranslate="contable4App.empresa.home.createOrEditLabel">
+        Create or edit a Empresa
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.empresa.razonSocial" for="field_razonSocial">Razon Social</label>
+          <input
+            type="text"
+            class="form-control"
+            name="razonSocial"
+            id="field_razonSocial"
+            data-cy="razonSocial"
+            formControlName="razonSocial"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.empresa.nombreComercial" for="field_nombreComercial"
+            >Nombre Comercial</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="nombreComercial"
+            id="field_nombreComercial"
+            data-cy="nombreComercial"
+            formControlName="nombreComercial"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.empresa.tipoDocumento" for="field_tipoDocumento"
+            >Tipo Documento</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="tipoDocumento"
+            id="field_tipoDocumento"
+            data-cy="tipoDocumento"
+            formControlName="tipoDocumento"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.empresa.documento" for="field_documento">Documento</label>
+          <input type="text" class="form-control" name="documento" id="field_documento" data-cy="documento" formControlName="documento" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.empresa.dv" for="field_dv">Dv</label>
+          <input type="text" class="form-control" name="dv" id="field_dv" data-cy="dv" formControlName="dv" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.empresa.direccion" for="field_direccion">Direccion</label>
+          <input type="text" class="form-control" name="direccion" id="field_direccion" data-cy="direccion" formControlName="direccion" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.empresa.indicativo" for="field_indicativo">Indicativo</label>
+          <input
+            type="number"
+            class="form-control"
+            name="indicativo"
+            id="field_indicativo"
+            data-cy="indicativo"
+            formControlName="indicativo"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.empresa.telefono" for="field_telefono">Telefono</label>
+          <input type="number" class="form-control" name="telefono" id="field_telefono" data-cy="telefono" formControlName="telefono" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.empresa.email" for="field_email">Email</label>
+          <input type="text" class="form-control" name="email" id="field_email" data-cy="email" formControlName="email" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.empresa.logo" for="field_logo">Logo</label>
+          <input type="text" class="form-control" name="logo" id="field_logo" data-cy="logo" formControlName="logo" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.empresa.resolucionFacturas" for="field_resolucionFacturas"
+            >Resolucion Facturas</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="resolucionFacturas"
+            id="field_resolucionFacturas"
+            data-cy="resolucionFacturas"
+            formControlName="resolucionFacturas"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.empresa.prefijoInicial" for="field_prefijoInicial"
+            >Prefijo Inicial</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="prefijoInicial"
+            id="field_prefijoInicial"
+            data-cy="prefijoInicial"
+            formControlName="prefijoInicial"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.empresa.prefijoFinal" for="field_prefijoFinal">Prefijo Final</label>
+          <input
+            type="text"
+            class="form-control"
+            name="prefijoFinal"
+            id="field_prefijoFinal"
+            data-cy="prefijoFinal"
+            formControlName="prefijoFinal"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.empresa.prefijoActual" for="field_prefijoActual"
+            >Prefijo Actual</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="prefijoActual"
+            id="field_prefijoActual"
+            data-cy="prefijoActual"
+            formControlName="prefijoActual"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.empresa.descripcion" for="field_descripcion">Descripcion</label>
+          <input
+            type="number"
+            class="form-control"
+            name="descripcion"
+            id="field_descripcion"
+            data-cy="descripcion"
+            formControlName="descripcion"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.empresa.fechaRegistro" for="field_fechaRegistro"
+            >Fecha Registro</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_fechaRegistro"
+              data-cy="fechaRegistro"
+              type="datetime-local"
+              class="form-control"
+              name="fechaRegistro"
+              formControlName="fechaRegistro"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.empresa.estado" for="field_estado">Estado</label>
+          <input type="number" class="form-control" name="estado" id="field_estado" data-cy="estado" formControlName="estado" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.empresa.regimen" for="field_regimen">Regimen</label>
+          <select class="form-control" id="field_regimen" data-cy="regimen" name="regimen" formControlName="regimen">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="regimenOption.id === editForm.get('regimen')!.value?.id ? editForm.get('regimen')!.value : regimenOption"
+              *ngFor="let regimenOption of regimenSharedCollection; trackBy: trackRegimenById"
+            >
+              {{ regimenOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.empresa.municipio" for="field_municipio">Municipio</label>
+          <select class="form-control" id="field_municipio" data-cy="municipio" name="municipio" formControlName="municipio">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="municipioOption.id === editForm.get('municipio')!.value?.id ? editForm.get('municipio')!.value : municipioOption"
+              *ngFor="let municipioOption of municipiosSharedCollection; trackBy: trackMunicipioById"
+            >
+              {{ municipioOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.empresa.ciudad" for="field_ciudad">Ciudad</label>
+          <select class="form-control" id="field_ciudad" data-cy="ciudad" name="ciudad" formControlName="ciudad">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="ciudadOption.id === editForm.get('ciudad')!.value?.id ? editForm.get('ciudad')!.value : ciudadOption"
+              *ngFor="let ciudadOption of ciudadsSharedCollection; trackBy: trackCiudadById"
+            >
+              {{ ciudadOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.empresa.departamento" for="field_departamento">Departamento</label>
+          <select class="form-control" id="field_departamento" data-cy="departamento" name="departamento" formControlName="departamento">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                departamentoOption.id === editForm.get('departamento')!.value?.id ? editForm.get('departamento')!.value : departamentoOption
+              "
+              *ngFor="let departamentoOption of departamentosSharedCollection; trackBy: trackDepartamentoById"
+            >
+              {{ departamentoOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.empresa.pais" for="field_pais">Pais</label>
+          <select class="form-control" id="field_pais" data-cy="pais" name="pais" formControlName="pais">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="paisOption.id === editForm.get('pais')!.value?.id ? editForm.get('pais')!.value : paisOption"
+              *ngFor="let paisOption of paisSharedCollection; trackBy: trackPaisById"
+            >
+              {{ paisOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label jhiTranslate="contable4App.empresa.usuario" for="field_usuarios">Usuario</label>
+          <select class="form-control" id="field_usuarios" data-cy="usuario" multiple name="usuarios" formControlName="usuarios">
+            <option
+              [ngValue]="getSelectedUsuario(usuarioOption, editForm.get('usuarios')!.value)"
+              *ngFor="let usuarioOption of usuariosSharedCollection; trackBy: trackUsuarioById"
+            >
+              {{ usuarioOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,315 @@
+
+entity Empresa {
+    razonSocial String
+    nombreComercial String
+    tipoDocumento String
+    documento String
+    dv String
+    direccion String
+    indicativo Integer
+    telefono Integer
+    email String
+    logo String
+    resolucionFacturas String
+    prefijoInicial String
+    prefijoFinal String
+    prefijoActual String
+    descripcion Long
+    fechaRegistro Instant
+    estado Integer
+}
+
+entity Sucursal {
+	nombre String
+  	direccion String
+    indicativo Integer
+    telefono Integer
+    email String
+    logo String
+    resolucionFacturas String
+    prefijoInicial String
+    prefijoFinal String
+    prefijoActual String
+    descripcion Long
+    fechaRegistro Instant
+}
+
+entity Regimen{
+    tipoRegimen String
+    nombreRegimen String
+    fechaRegistro String
+}
+
+entity Usuario{
+    nombres String
+    apellidos String
+    tipoPersona String
+    tipoDocumento String
+    documento String
+    dv String
+    estado Integer
+    rol String
+	rut String
+    nombreComercial String
+    nit String
+    dv String
+    direccion String
+    indicativo Integer
+    telefono Integer
+    email String
+    genero String
+    edad Instant
+    foto String
+    descripcion Long
+    fechaRegistro Instant
+}
+
+entity Cliente{
+    nombres String
+    apellidos String
+    tipoPersona String
+    tipoDocumento String
+    documento String
+    dv String
+    estado Integer
+}
+
+entity Empleado{
+    nombres String
+    apellidos String
+    tipoPersona String
+    tipoDocumento String
+    documento String
+    dv String
+    estado Integer
+}
+
+entity Trabajo{
+    nombre String
+    cargo String
+    salario Integer
+    salud String
+    pension String
+    observacon String
+    fechaRegistro String
+}
+
+entity Municipio{
+    nombre String
+    codigoDIAN String
+}
+
+entity Ciudad{
+    nombre String
+    codigoDIAN String
+}
+
+entity Departamento{
+    nombre String
+    codigoDIAN String
+}
+
+entity Pais{
+    nombre String
+    codigoDIAN String
+}
+
+entity Factura{
+	numero Integer
+    caja String
+    estado Integer
+    iva19 Double
+    baseIva19 Double
+    iva5 Double
+    baseIva5 Double
+    iva0 Double
+    baseIva0 Double
+    total Integer
+    pago Double
+    saldo Double
+    fechaRegistro Instant
+	fechaActualizacion Instant
+}
+
+entity TipoFactura{
+	nombre String
+    prefijoInicial Integer
+    prefijoFinal Integer
+    prefijoActual Integer
+}
+
+entity NotaContable {
+	numero Integer
+}
+
+entity DetalleFactura {
+	precio Double
+    cantidad Double
+    total Double
+    iva Integer
+    valorImpuesto Double
+    estado Integer
+}
+//La entidad DetallesObjeto se encargara de crear los campos input de los detalles del producto por ejemplo peso etc...
+entity DetallesObjeto{
+	nombre String
+    descripcion Long
+    fechaRegistro Instant
+}
+
+entity Objeto {
+	nombre String
+    cantidad Integer
+    codigoDian String
+    detalleObjeto Long
+    vencimiento Instant
+    fechaRegistro Instant
+}
+
+entity Codigo{
+	barCode Long
+    qrCode Long
+    cantidad Integer
+    fechaRegistro Instant
+}
+
+entity Precio{
+	valorVenta Double
+	valorCompra Double
+}
+
+entity Paquete{
+	cantidad Integer
+}
+
+entity Lote{
+	numero Integer
+}
+
+entity Vencimiento{
+	fecha Instant
+}
+
+entity TipoObjeto {
+	nombre String
+    fechaRegistro String
+    codigoDian String
+}
+
+entity Inventario {
+	nombre String
+    valor Double
+    fechaRegistro Instant
+}
+
+entity Sector {
+	nombre String
+    valor Double
+    fechaRegistro Instant
+}
+
+relationship ManyToMany {
+	Empresa{usuario} to Usuario{empresa}
+}
+
+relationship OneToMany {
+	//EMPRESA
+	Empresa{sucursal} to Sucursal
+    
+    //FACTURA
+    Factura{detalleFactura} to DetalleFactura
+    
+    //INVENTARIO
+    Inventario{sector} to Sector
+    
+    Sector{objeto} to Objeto
+    
+    //PRODUCTO
+    Objeto{codigo} to Codigo
+    
+    Paquete{precio} to Precio
+}
+
+relationship OneToOne {
+	//USUARIO
+    Usuario{cliente} to Cliente
+
+	Usuario{empleado} to Empleado
+    
+    //FACTURA
+	Factura{sucursal} to Sucursal
+    
+	Factura{tipoFactura} to TipoFactura
+    
+	Factura{notaContable} to NotaContable
+    
+    //DETALLE FACTURA
+	DetalleFactura{objeto} to Objeto
+    
+    //PRODUCTO
+	Objeto{tipoObjeto} to TipoObjeto
+    
+	Objeto{usuario} to Usuario
+    
+    Codigo{paquete} to Paquete
+    
+    Codigo{lote} to Lote
+    
+    Codigo{vencimiento} to Vencimiento
+}
+
+relationship ManyToOne {
+    //EMPRESA
+	Empresa{regimen} to Regimen
+
+	Empresa{municipio} to Municipio
+
+	Empresa{ciudad} to Ciudad
+
+	Empresa{departamento} to Departamento
+
+	Empresa{pais} to Pais
+    //SUCURSAL
+	Sucursal{regimen} to Regimen
+
+	Sucursal{municipio} to Municipio
+
+	Sucursal{ciudad} to Ciudad
+
+	Sucursal{departamento} to Departamento
+
+	Sucursal{pais} to Pais
+
+    //USUARIO EMPLEADO
+	Empleado{trabajo} to Trabajo
+
+    Usuario{municipio} to Municipio
+
+	Usuario{ciudad} to Ciudad
+
+	Usuario{departamento} to Departamento
+
+	Usuario{pais} to Pais
+
+    //CLIENTE DIRECCION DE FACTURACION
+	Cliente{municipio} to Municipio
+
+	Cliente{ciudad} to Ciudad
+
+	Cliente{departamento} to Departamento
+
+	Cliente{pais} to Pais
+
+    //Facturas
+	Factura{cliente} to Cliente
+    
+	Factura{empleadp} to Empleado
+}
+
+
+paginate Empresa, Sucursal, Regimen, Usuario, Cliente, Empleado, Trabajo, Municipio, Ciudad, Departamento, Pais, Factura, TipoFactura, NotaContable, DetalleFactura, DetallesObjeto, Objeto, Codigo, Paquete, Precio, Lote, Vencimiento, TipoObjeto, Inventario, Sector  with infinite-scroll
+paginate Empresa, Sucursal, Regimen, Usuario, Cliente, Empleado, Trabajo, Municipio, Ciudad, Departamento, Pais, Factura, TipoFactura, NotaContable, DetalleFactura, DetallesObjeto, Objeto, Codigo, Paquete, Precio, Lote, Vencimiento, TipoObjeto, Inventario, Sector with pagination
+
+service all with serviceImpl
+
+

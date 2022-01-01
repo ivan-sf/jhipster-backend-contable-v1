@@ -1,0 +1,128 @@
+{
+  "name": "Empresa",
+  "fields": [
+    {
+      "fieldName": "razonSocial",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nombreComercial",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tipoDocumento",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "documento",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dv",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "direccion",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "indicativo",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "telefono",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "logo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "resolucionFacturas",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "prefijoInicial",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "prefijoFinal",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "prefijoActual",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "descripcion",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "fechaRegistro",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "estado",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "sucursal",
+      "otherEntityRelationshipName": "empresa",
+      "relationshipName": "sucursal"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "regimen",
+      "otherEntityRelationshipName": "empresa",
+      "relationshipName": "regimen"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "municipio",
+      "otherEntityRelationshipName": "empresa",
+      "relationshipName": "municipio"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "ciudad",
+      "otherEntityRelationshipName": "empresa",
+      "relationshipName": "ciudad"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "departamento",
+      "otherEntityRelationshipName": "empresa",
+      "relationshipName": "departamento"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "pais",
+      "otherEntityRelationshipName": "empresa",
+      "relationshipName": "pais"
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "usuario",
+      "otherEntityRelationshipName": "empresa",
+      "relationshipName": "usuario",
+      "ownerSide": true
+    }
+  ],
+  "entityTableName": "empresa",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20220102042117"
+}

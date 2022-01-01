@@ -1,0 +1,26 @@
+{
+  "contable4App": {
+    "detallesObjeto": {
+      "home": {
+        "title": "Detalles Objetos",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Detalles Objeto",
+        "createOrEditLabel": "Crear o editar Detalles Objeto",
+        "notFound": "Ningún Detalles Objetos encontrado"
+      },
+      "created": "Un nuevo Detalles Objeto ha sido creado con el identificador {{ param }}",
+      "updated": "Un Detalles Objeto ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Detalles Objeto ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Detalles Objeto {{ id }}?"
+      },
+      "detail": {
+        "title": "Detalles Objeto"
+      },
+      "id": "ID",
+      "nombre": "Nombre",
+      "descripcion": "Descripcion",
+      "fechaRegistro": "Fecha Registro"
+    }
+  }
+}

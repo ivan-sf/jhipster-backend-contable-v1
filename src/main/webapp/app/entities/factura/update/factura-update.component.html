@@ -1,0 +1,197 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-factura-heading" data-cy="FacturaCreateUpdateHeading" jhiTranslate="contable4App.factura.home.createOrEditLabel">
+        Create or edit a Factura
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.factura.numero" for="field_numero">Numero</label>
+          <input type="number" class="form-control" name="numero" id="field_numero" data-cy="numero" formControlName="numero" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.factura.caja" for="field_caja">Caja</label>
+          <input type="text" class="form-control" name="caja" id="field_caja" data-cy="caja" formControlName="caja" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.factura.estado" for="field_estado">Estado</label>
+          <input type="number" class="form-control" name="estado" id="field_estado" data-cy="estado" formControlName="estado" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.factura.iva19" for="field_iva19">Iva 19</label>
+          <input type="number" class="form-control" name="iva19" id="field_iva19" data-cy="iva19" formControlName="iva19" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.factura.baseIva19" for="field_baseIva19">Base Iva 19</label>
+          <input type="number" class="form-control" name="baseIva19" id="field_baseIva19" data-cy="baseIva19" formControlName="baseIva19" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.factura.iva5" for="field_iva5">Iva 5</label>
+          <input type="number" class="form-control" name="iva5" id="field_iva5" data-cy="iva5" formControlName="iva5" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.factura.baseIva5" for="field_baseIva5">Base Iva 5</label>
+          <input type="number" class="form-control" name="baseIva5" id="field_baseIva5" data-cy="baseIva5" formControlName="baseIva5" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.factura.iva0" for="field_iva0">Iva 0</label>
+          <input type="number" class="form-control" name="iva0" id="field_iva0" data-cy="iva0" formControlName="iva0" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.factura.baseIva0" for="field_baseIva0">Base Iva 0</label>
+          <input type="number" class="form-control" name="baseIva0" id="field_baseIva0" data-cy="baseIva0" formControlName="baseIva0" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.factura.total" for="field_total">Total</label>
+          <input type="number" class="form-control" name="total" id="field_total" data-cy="total" formControlName="total" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.factura.pago" for="field_pago">Pago</label>
+          <input type="number" class="form-control" name="pago" id="field_pago" data-cy="pago" formControlName="pago" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.factura.saldo" for="field_saldo">Saldo</label>
+          <input type="number" class="form-control" name="saldo" id="field_saldo" data-cy="saldo" formControlName="saldo" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.factura.fechaRegistro" for="field_fechaRegistro"
+            >Fecha Registro</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_fechaRegistro"
+              data-cy="fechaRegistro"
+              type="datetime-local"
+              class="form-control"
+              name="fechaRegistro"
+              formControlName="fechaRegistro"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.factura.fechaActualizacion" for="field_fechaActualizacion"
+            >Fecha Actualizacion</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_fechaActualizacion"
+              data-cy="fechaActualizacion"
+              type="datetime-local"
+              class="form-control"
+              name="fechaActualizacion"
+              formControlName="fechaActualizacion"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.factura.sucursal" for="field_sucursal">Sucursal</label>
+          <select class="form-control" id="field_sucursal" data-cy="sucursal" name="sucursal" formControlName="sucursal">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="sucursalOption.id === editForm.get('sucursal')!.value?.id ? editForm.get('sucursal')!.value : sucursalOption"
+              *ngFor="let sucursalOption of sucursalsCollection; trackBy: trackSucursalById"
+            >
+              {{ sucursalOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.factura.tipoFactura" for="field_tipoFactura">Tipo Factura</label>
+          <select class="form-control" id="field_tipoFactura" data-cy="tipoFactura" name="tipoFactura" formControlName="tipoFactura">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                tipoFacturaOption.id === editForm.get('tipoFactura')!.value?.id ? editForm.get('tipoFactura')!.value : tipoFacturaOption
+              "
+              *ngFor="let tipoFacturaOption of tipoFacturasCollection; trackBy: trackTipoFacturaById"
+            >
+              {{ tipoFacturaOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.factura.notaContable" for="field_notaContable">Nota Contable</label>
+          <select class="form-control" id="field_notaContable" data-cy="notaContable" name="notaContable" formControlName="notaContable">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                notaContableOption.id === editForm.get('notaContable')!.value?.id ? editForm.get('notaContable')!.value : notaContableOption
+              "
+              *ngFor="let notaContableOption of notaContablesCollection; trackBy: trackNotaContableById"
+            >
+              {{ notaContableOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.factura.cliente" for="field_cliente">Cliente</label>
+          <select class="form-control" id="field_cliente" data-cy="cliente" name="cliente" formControlName="cliente">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="clienteOption.id === editForm.get('cliente')!.value?.id ? editForm.get('cliente')!.value : clienteOption"
+              *ngFor="let clienteOption of clientesSharedCollection; trackBy: trackClienteById"
+            >
+              {{ clienteOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="contable4App.factura.empleadp" for="field_empleadp">Empleadp</label>
+          <select class="form-control" id="field_empleadp" data-cy="empleadp" name="empleadp" formControlName="empleadp">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="empleadoOption.id === editForm.get('empleadp')!.value?.id ? editForm.get('empleadp')!.value : empleadoOption"
+              *ngFor="let empleadoOption of empleadosSharedCollection; trackBy: trackEmpleadoById"
+            >
+              {{ empleadoOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
